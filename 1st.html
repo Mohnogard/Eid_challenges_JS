@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <title>Challenge_1</title>
+</head>
+<body>
+    <script>
+
+
+//  Desired output
+// [
+//   { event:"click", count:1 },
+//   { event:"scroll", count:2 },
+//   { event:"click", count:2}
+// ]
+
+        let data = [
+  { event:"click", time:1 },
+  { event:"click", time:4 },
+  { event:"scroll", time:2 },
+  { event:"scroll", time:3 },
+  { event:"click", time:5 }
+]
+
+var buffer = []
+var buffer1 = {event:'', count:0}
+//let buffer = [{}]
+
+
+        // for (let i=0; i<data.length; i++){
+        //     let time=data[i].time
+        //     for (var j=0; j<data.length; j++){
+        //         console.log("hello")
+        //     }
+        // }
+        
+// console.log(Array.isArray(buffer))
+
+        for (let i = 0; i<data.length; i++){
+            buffer.push(buffer1)
+            buffer[i].event=data[i].event
+            // console.log(buffer[i]);
+
+            // buffer1[i].event = data[i].event
+
+        }
+                    console.log(buffer);
+
+//         console.log(buffer1)
+//         for (let i=0; i<data.length; i++){
+//             buffer.event=data.event;
+//             if (data.event==buffer.event){
+//                 buffer.count+=1
+//             }
+//             console.log(buffer[i].event=i)
+//         }
+
+
+// console.log(buffer1)
+    </script>
+</body>
