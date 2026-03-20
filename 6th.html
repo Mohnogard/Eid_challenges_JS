@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+      
+data = [1,2,3,4,12,4]
+results =[]
+let total=1
+for (i of data){
+    console.log(i)
+
+}
+for (let i=0; i<=data.length-1;i++){
+    let mult = data[i]
+    for (let j=0; j<data.length;j++){
+        if (j!=i){
+            total*=data[j]}
+    }
+    results.push(total)
+    total=1
+}
+
+console.log(results)
+    </script>
+</body>

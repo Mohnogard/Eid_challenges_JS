@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+
+function largest (arr){
+    let largest = 0
+    loop: for (let i=0; i<data.length;i++){
+        for (let j=0;j<data.length;j++){
+            if (data[i]>=data[j]){
+                largest=data[i]
+            } else {
+                break
+            }
+            if (j===(data.length-1)){
+                break loop}
+
+        }
+    }
+    return(largest)
+}
+
+function smallest (arr){
+    let small=0
+    loop: for (let i=0; i<data.length;i++){
+        for (let j=0;j<data.length;j++){
+            if (data[i]<=data[j]){
+                small=data[i]
+            } else {
+                break
+            }
+            if (j===(data.length-1)){
+                break loop}
+
+        }
+    }
+    return(small)
+}
+
+
+
+
+let data=[3,2,4,1,2,3,4,5,6,7,8,2,3]
+
+console.log(smallest(data))
+console.log(largest(data))
+
+let small=smallest(data)
+let large=largest(data)
+
+let indexes=[]
+let index = []
+
+
+loop: for (let i=0;i<data.length;i++){
+
+    if (data[i]===small){
+        indexes.push(data[i])
+        index.push(i)
+        for (let x=i; x<large+i;x++){
+            if ((data[x]+1)===data[x+1]){
+                indexes.push(data[x+1])
+            } else {
+                indexes=[]
+                index=[]
+                break
+            } 
+            if(indexes.length===(large-small+1)){
+                index.push(x+1)
+                break loop
+            }
+        }
+    }
+}
+console.log("The list: "+indexes+ " is at these positions: ", index)
+
+    </script>
+</body>

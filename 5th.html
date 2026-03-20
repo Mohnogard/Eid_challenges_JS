@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        
+let stored = []
+//start from one and keep going until I find a repeated element then store that array
+//redo it from one+1
+//start forming array while checking if each new entry is inside the result yet
+           // if (data[i]!=data[j]){
+            //     results.push(data[j])
+            // } 
+
+
+let data = [1,2,3,1,2,3,4,5,3,1,4,5,6,3,2,1,1,3,3,2,1,1,3,1,4,5] 
+
+function periods (data){
+    let results = []
+    let arrays = [""]
+    for (let i=0; i<=data.length-1;i++){
+        results.push(data[i])
+        console.log("......Starting with......"+ data[i])
+        for (let j=i+1; j<=data.length-1;j++){
+            console.log("working with "+ data[j])
+            if (checkifin(results, data[j])==false){
+                results.push(data[j])
+            } else {
+                break
+            }
+        }
+        console.log(arrays[0].length + "..." + results)
+         if (arrays[0].length<results.length){
+            arrays = []
+             arrays.push(results)}
+         results=[]}
+           console.log(arrays)
+
+//===========
+function checkifin(arr, target){
+    console.log("array passed to checkifin: "+arr)
+    for (let x=0; x<arr.length; x++){
+        console.log("checking if "+arr[x]+" = "+target)
+        if (arr[x]==target){
+            return(true)
+        } 
+        if (x==arr.length-1){
+            return(false)
+        }        
+
+    }
+
+         results=[]
+    }
+
+}     
+ 
+
+let testarr = [1,2,3,4]
+for (let x=0;x<testarr.length;x++){
+    console.log(testarr[x])
+    if(testarr[x]==2){
+        console.log(x+"Tyoyoyo")
+        continue
+    }
+}
+(periods(data))
+    </script>
+</body>

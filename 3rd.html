@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <title>Challenge_3</title>
+</head>
+<body>
+    <script>
+    
+//go through data, calculate difference between each and its predecessor
+//note differences, then find greatest difference
+//let profit
+
+data=[2,7,1,5,3,6,4]
+let profits = []
+let profindexes = []
+let lowest=data[0]
+let highest=data[0]
+let best =0
+
+function approach1 (arr){
+    for (let i=0;i<data.length;i++){
+        if ((i+1)<data.length){
+            profits.push((data[i+1]-data[i]))
+            profindexes.push([i,i+1])
+    }}
+
+    for (let j=0;j<profits.length;j++){
+        for (let x=0; x<profits.length;x++){
+            if (profits[j]>=profits[x]){
+                best=profits[j]
+            } else {
+                break
+            }
+            if (x==profits.length-1){
+                console.log("best profit is: "+best+ " which is at indexes: "+ profindexes[j])
+                return(best, profindexes[j])
+                break
+            }
+
+            }
+        }
+    }
+
+approach1(data)
+
+//========= Other interpretation (Find max profit) ===========
+// function approach2 (arr){
+
+// for (let i=0; i<arr.length-1;i++){
+//     if (arr[i]<lowest){
+//         lowest=arr[i]
+//     }
+// }
+// for (let i=0; i<arr.length-1;i++){
+//     if (arr[i]>highest){
+//         lowest=data[i]
+//     }
+// }
+// console.log(lowest + ".." + highest)
+// return(profit)
+// }
+
+// console.log(approach2)
+    </script>
+</body>

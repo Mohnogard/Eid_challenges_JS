@@ -16,45 +16,44 @@
         let data = [
   { event:"click", time:1 },
   { event:"click", time:4 },
-  { event:"scroll", time:2 },
+  { event:"scroll", time:2 },  
   { event:"scroll", time:3 },
   { event:"click", time:5 }
 ]
+let result = []
+let counter =1
 
-var buffer = []
-var buffer1 = {event:'', count:0}
-//let buffer = [{}]
-
-
-        // for (let i=0; i<data.length; i++){
-        //     let time=data[i].time
-        //     for (var j=0; j<data.length; j++){
-        //         console.log("hello")
-        //     }
-        // }
-        
-// console.log(Array.isArray(buffer))
-
-        for (let i = 0; i<data.length; i++){
-            buffer.push(buffer1)
-            buffer[i].event=data[i].event
-            // console.log(buffer[i]);
-
-            // buffer1[i].event = data[i].event
-
+for (let i=0; i<data.length; i++){
+    for (let j=0; j<data.length-1; j++){
+        let storage
+        if (data[j].time>data[j+1].time){
+            storage = data[j]
+            data[j]=data[j+1]
+            data[j+1]=storage
         }
-                    console.log(buffer);
+    }
+}
 
-//         console.log(buffer1)
-//         for (let i=0; i<data.length; i++){
-//             buffer.event=data.event;
-//             if (data.event==buffer.event){
-//                 buffer.count+=1
-//             }
-//             console.log(buffer[i].event=i)
-//         }
+for (let i = 0; i < data.length - 1; i++) {
+    if (data[i].event === data[i + 1].event) {
+        counter++;
+    } else {
+        result.push({
+            event: data[i].event,
+            count: counter
+        });
+        counter = 1;
+    }
+}
+
+// last group
+result.push({
+    event: data[data.length - 1].event,
+    count: counter
+});
+
+console.log(result)
 
 
-// console.log(buffer1)
     </script>
 </body>

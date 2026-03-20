@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+let final = []
+let initialarr = []
+let initial = []
+let arr =[
+{height:7, inFront: 1},
+{height:7, inFront: 0},
+{height:6, inFront: 2},
+{height:7, inFront: 2},
+{height:5, inFront: 2},
+{height:4, inFront: 0},
+{height:3, inFront: 0},
+{height:1, inFront: 0},
+{height:4, inFront: 3}
+]
+
+for (i of arr){
+    initial.push(i.height)
+    initialarr.push(i)
+}
+
+// Sort ascending
+for (i=0; i<arr.length;i++){
+    for (j=0; j<=arr.length-1;j++){
+        if (arr[i].height>=arr[j].height){
+            [arr[i], arr[j]]=[arr[j], arr[i]]
+        } else if (arr[i]>arr[j]) {
+            break
+        }
+    }
+}
+
+//sort by inside
+for (i=0; i<arr.length;i++){
+    for (j=i; j<=arr.length-1;j++){
+        if (arr[i].height==arr[j].height){
+            if (arr[i].inFront>arr[j].inFront){
+                [arr[j], arr[i]]=[arr[i], arr[j]]
+            }
+        } else {
+            break
+        }
+    }
+}
+
+//rearrange
+for (i=0; i<arr.length;i++){
+    from = i
+    to = (i-arr[i].inFront)
+    let temp = arr[from];
+    for (let i = from; i > to; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[to] = temp;
+}
+
+for (i of arr){
+    final.push(i.height)
+}
+
+console.log("Started with this order: "+initial)
+console.log("and this array: ")
+console.log(initialarr)
+
+console.log("Then rearranged by Queue: "+final)
+console.log("and got this array: ")
+console.log(arr)
+    </script>
+</body>
