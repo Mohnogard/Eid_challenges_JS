@@ -9,40 +9,71 @@
 //note differences, then find greatest difference
 //let profit
 
-data=[2,7,1,5,3,6,4]
-let profits = []
-let profindexes = []
-let lowest=data[0]
-let highest=data[0]
-let best =0
 
-function approach1 (arr){
-    for (let i=0;i<data.length;i++){
-        if ((i+1)<data.length){
-            profits.push((data[i+1]-data[i]))
-            profindexes.push([i,i+1])
-    }}
+//========= Approach 1 (correct one probably) =========
+let arr=[12,2,9,3,12,1,10,0,3,1,1,10,4]
+let max =0
+let smallest = arr[0]
+let smallestindex = 0
+let buyIndex = 0
+let sellIndex = 0
+console.log(arr)
 
-    for (let j=0;j<profits.length;j++){
-        for (let x=0; x<profits.length;x++){
-            if (profits[j]>=profits[x]){
-                best=profits[j]
-            } else {
-                break
-            }
-            if (x==profits.length-1){
-                console.log("best profit is: "+best+ " which is at indexes: "+ profindexes[j])
-                return(best, profindexes[j])
-                break
-            }
-
-            }
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < smallest) {
+        smallest = arr[i]   // update best buy so far
+        smallestindex=i
+    } else {
+        let profit = arr[i] - smallest
+        if (profit > max) {
+            max = profit
+            sellIndex=i
+            buyIndex=smallestindex
         }
     }
+}
+console.log("The max profit would be if you buy at: ", buyIndex, " for the price of: ",smallest,"$$")
+console.log("And sell at: ", sellIndex, " for the price of ", max,'$$')
+console.log('Proft: ', max, '$$$!')
 
-approach1(data)
 
-//========= Other interpretation (Find max profit) ===========
+//========= Approach 2 (Find best profit of 2 days in a row) =========
+
+// let profits = []
+// let profindexes = []
+// let best =0
+
+// function approach1 (arr){
+//     for (let i=0;i<arr.length;i++){
+//         if ((i+1)<arr.length){
+//             profits.push((arr[i+1]-arr[i]))
+//             profindexes.push([i,i+1])
+//     }}
+
+//     for (let j=0;j<profits.length;j++){
+//         for (let x=0; x<profits.length;x++){
+//             if (profits[j]>=profits[x]){
+//                 best=profits[j]
+//             } else {
+//                 break
+//             }
+//             if (x==profits.length-1){
+//                 console.log("best profit is: "+best+ " which is at indexes: "+ profindexes[j])
+//                 return(best, profindexes[j])
+//                 break
+//             }
+
+//             }
+//         }
+//     }
+
+// approach1(arr)
+
+
+
+//========= Approach 3 (Find absolute max profit regardless of days) =========
+// let lowest=arr[0]
+// let highest=arr[0]
 // function approach2 (arr){
 
 // for (let i=0; i<arr.length-1;i++){
@@ -52,13 +83,13 @@ approach1(data)
 // }
 // for (let i=0; i<arr.length-1;i++){
 //     if (arr[i]>highest){
-//         lowest=data[i]
+//         lowest=arr[i]
 //     }
 // }
 // console.log(lowest + ".." + highest)
-// return(profit)
+
 // }
 
-// console.log(approach2)
+// (approach2(arr))
     </script>
 </body>
