@@ -8,14 +8,14 @@
 
 function largest (arr){
     let largest = 0
-    loop: for (let i=0; i<data.length;i++){
-        for (let j=0;j<data.length;j++){
-            if (data[i]>=data[j]){
-                largest=data[i]
+    loop: for (let i=0; i<arr.length;i++){
+        for (let j=0;j<arr.length;j++){
+            if (arr[i]>=arr[j]){
+                largest=arr[i]
             } else {
                 break
             }
-            if (j===(data.length-1)){
+            if (j===(arr.length-1)){
                 break loop}
 
         }
@@ -25,14 +25,14 @@ function largest (arr){
 
 function smallest (arr){
     let small=0
-    loop: for (let i=0; i<data.length;i++){
-        for (let j=0;j<data.length;j++){
-            if (data[i]<=data[j]){
-                small=data[i]
+    loop: for (let i=0; i<arr.length;i++){
+        for (let j=0;j<arr.length;j++){
+            if (arr[i]<=arr[j]){
+                small=arr[i]
             } else {
                 break
             }
-            if (j===(data.length-1)){
+            if (j===(arr.length-1)){
                 break loop}
 
         }
@@ -44,12 +44,12 @@ function smallest (arr){
 
 
 let data=[3,2,4,1,2,3,4,5,6,7,8,2,3]
+let target = [1,2,3,4,5]
+console.log(smallest(target), " is the smallest in ", target)
+console.log(largest(target), " is the largest in ", target)
 
-console.log(smallest(data))
-console.log(largest(data))
-
-let small=smallest(data)
-let large=largest(data)
+let small=smallest(target)
+let large=largest(target)
 
 let indexes=[]
 let index = []
@@ -75,7 +75,7 @@ loop: for (let i=0;i<data.length;i++){
         }
     }
 }
-console.log("The list: "+indexes+ " is at these positions: ", index)
+console.log("The shortest part: "+indexes+ " is at these positions: ", index)
 
     </script>
 </body>
