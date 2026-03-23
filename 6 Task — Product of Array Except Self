@@ -10,7 +10,6 @@ results =[]
 let total=1
 for (i of data){
     console.log(i)
-
 }
 for (let i=0; i<=data.length-1;i++){
     let mult = data[i]
