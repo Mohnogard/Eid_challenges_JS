@@ -4,64 +4,42 @@
 </head>
 <body>
     <script>
-let data=[3,2,4,1,2,3,4,5,6,7,8,2,3]
+let data=[3,2,4,1,2,3,4,5,2,1,6,7,8,2,3]
 let target = [1,2,3,4,5]
 
 function smallestpart(arr, target){
-    let small=0
-    let large=0
     let indexes=[]
     let index = []
-    loop: for (let i=0; i<arr.length;i++){
-            for (let j=0;j<arr.length;j++){
-                if (arr[i]<=arr[j]){
-                    small=arr[i]
-                } else {
-                    break
-                }
-                if (j===(arr.length-1)){
-                    break loop
-                }
-
-            }
-        }
-
-    loop1:  for (let i=0; i<arr.length;i++){
-                for (let j=0;j<arr.length;j++){
-                    if (arr[i]>=arr[j]){
-                        large=arr[i]
-                    } else {
-                        break
-                    }
-                    if (j===(arr.length-1)){
-                        break loop1
-                    }
-
-                }
-             }
-
-    loop2: for (let i=0;i<arr.length;i++){
+    let large= target[target.length-1]
+    let small=target[0]
+    let counter=1
+    loop: for (let i=0;i<arr.length;i++){
                 if (arr[i]===small){
                     indexes.push(arr[i])
                     index.push(i)
-                for (let x=i; x<large+i;x++){
-                    if ((arr[x]+1)===arr[x+1]){
+                for (let x=i+1; x<arr.length;x++){
+
+                    if ((arr[x])===target[counter]){
                         indexes.push(arr[x+1])
+                        counter+=1
                     } else {
                         indexes=[]
                         index=[]
                         break
                     } 
-                    if(indexes.length===(large-small+1)){
+                    if(indexes.length===(target.length)){
                         index.push(x+1)
-                        break loop2
+                        break loop
                     }
             }
         }
     }
-    console.log("The shortest part: "+indexes+ " is at these positions: ", index)
+    if (index.length==0){
+        return("Not found")
+    }
+    console.log("The shortest part: "+target+ " is at these positions: ", index)
 }
 
-console.log(smallestpart(data,target))
+smallestpart(data,target)
     </script>
 </body>
