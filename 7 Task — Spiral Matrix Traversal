@@ -11,8 +11,9 @@ let data=[[1,2,3,4],
       [9,10,11,12],
       [13,14,15,16]]
 let path=[]
-console.log(typeof(data))
 let value=0
+for(x=0;x<=data.length;x++){
+console.log(data[x])}
 
 while (data.length > 0 && data[0].length > 0) { //while rows and columns are greater than 0
 
@@ -57,8 +58,6 @@ while (data.length > 0 && data[0].length > 0) { //while rows and columns are gre
 }
 
 console.log(path);
-
-
 
     </script>
 </body>
