@@ -5,10 +5,8 @@
 <body>
     <script>
 let height = [0,1,0,2,1,0,1,3,2,1,2,1];
-let totalWater = 0;
+let totalwater = 0;
 
-
-height = [0,1,0,2,1,0,1,3,2,1,2,1];
 
 for (let i=0; i<height.length;i++){
     let leftMax=0
@@ -26,9 +24,9 @@ for (let i=0; i<height.length;i++){
         } 
     }
     let water = Math.min(leftMax, rightMax)-height[i]  
-    totalWater+=water
+    totalwater+=water
 
 }
-console.log(totalWater); // 6
+console.log(totalwater); // 6
     </script>
 </body>
