@@ -4,78 +4,64 @@
 </head>
 <body>
     <script>
-
-
-function largest (arr){
-    let largest = 0
-    loop: for (let i=0; i<arr.length;i++){
-        for (let j=0;j<arr.length;j++){
-            if (arr[i]>=arr[j]){
-                largest=arr[i]
-            } else {
-                break
-            }
-            if (j===(arr.length-1)){
-                break loop}
-
-        }
-    }
-    return(largest)
-}
-
-function smallest (arr){
-    let small=0
-    loop: for (let i=0; i<arr.length;i++){
-        for (let j=0;j<arr.length;j++){
-            if (arr[i]<=arr[j]){
-                small=arr[i]
-            } else {
-                break
-            }
-            if (j===(arr.length-1)){
-                break loop}
-
-        }
-    }
-    return(small)
-}
-
-
-
-
 let data=[3,2,4,1,2,3,4,5,6,7,8,2,3]
 let target = [1,2,3,4,5]
-console.log(smallest(target), " is the smallest in ", target)
-console.log(largest(target), " is the largest in ", target)
 
-let small=smallest(target)
-let large=largest(target)
+function smallestpart(arr, target){
+    let small=0
+    let large=0
+    let indexes=[]
+    let index = []
+    loop: for (let i=0; i<arr.length;i++){
+            for (let j=0;j<arr.length;j++){
+                if (arr[i]<=arr[j]){
+                    small=arr[i]
+                } else {
+                    break
+                }
+                if (j===(arr.length-1)){
+                    break loop
+                }
 
-let indexes=[]
-let index = []
+            }
+        }
 
+    loop1:  for (let i=0; i<arr.length;i++){
+                for (let j=0;j<arr.length;j++){
+                    if (arr[i]>=arr[j]){
+                        large=arr[i]
+                    } else {
+                        break
+                    }
+                    if (j===(arr.length-1)){
+                        break loop1
+                    }
 
-loop: for (let i=0;i<data.length;i++){
+                }
+             }
 
-    if (data[i]===small){
-        indexes.push(data[i])
-        index.push(i)
-        for (let x=i; x<large+i;x++){
-            if ((data[x]+1)===data[x+1]){
-                indexes.push(data[x+1])
-            } else {
-                indexes=[]
-                index=[]
-                break
-            } 
-            if(indexes.length===(large-small+1)){
-                index.push(x+1)
-                break loop
+    loop2: for (let i=0;i<arr.length;i++){
+                if (arr[i]===small){
+                    indexes.push(arr[i])
+                    index.push(i)
+                for (let x=i; x<large+i;x++){
+                    if ((arr[x]+1)===arr[x+1]){
+                        indexes.push(arr[x+1])
+                    } else {
+                        indexes=[]
+                        index=[]
+                        break
+                    } 
+                    if(indexes.length===(large-small+1)){
+                        index.push(x+1)
+                        break loop2
+                    }
             }
         }
     }
+    console.log("The shortest part: "+indexes+ " is at these positions: ", index)
 }
-console.log("The shortest part: "+indexes+ " is at these positions: ", index)
 
+console.log(smallestpart(data,target))
     </script>
 </body>
